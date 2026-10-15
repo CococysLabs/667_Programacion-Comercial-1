@@ -1,56 +1,80 @@
-# [667] Programación Comercial 1
+# 667_Programacion-Comercial-1
+Contenido, ejemplos y recursos del curso de Programación Comercial 1.
 
-Repositorio de material del curso **Programación Comercial 1**, organizado por ciclo académico.
+## 📌 Guía de Trabajo para Tutores Auxiliares
 
-## 📁 Contenido
+¡Bienvenido/a al equipo de tutores! Para garantizar el correcto orden del material, este repositorio utiliza restricciones por directorio mediante el archivo `CODEOWNERS` y permisos asignados al **Team de Tutores**.
 
-Cada ciclo contiene el material del curso organizado según la estructura original del profesor/catedrático (programa, contenidos semanales, proyectos, tareas, diseño curricular, etc.).
+---
 
-Ciclos disponibles:
+### 🚨 Políticas de Permisos y Edición
 
-- [Ciclo 2024 - Primer Semestre](Ciclo-2024-Primer-Semestre/)
-- [Ciclo 2024 - Segundo Semestre](Ciclo-2024-Segundo-Semestre/)
-- [Ciclo 2025 - Primer Semestre](Ciclo-2025-Primer-Semestre/)
-- [Ciclo 2025 - Segundo Semestre](Ciclo-2025-Segundo-Semestre/)
-- [Ciclo 2026 - Primer Semestre](Ciclo-2026-Primer-Semestre/)
-- [Ciclo 2026 - Segundo Semestre](Ciclo-2026-Segundo-Semestre/)
+1. **Pertenencia al Team:** Eres parte del equipo asignado a este repositorio con permisos para subir cambios a la carpeta del ciclo vigente ubicada en la rama `main`.
+2. **Restricción de Rutas:** El archivo `.github/CODEOWNERS` protege los ciclos anteriores y otras carpetas del curso. **Únicamente se te permitirá hacer push o cambios sobre la carpeta correspondiente al ciclo actual.**
+3. **Descarga Selectiva:** Para evitar descargar carpetas pesadas de ciclos pasados, es **obligatorio** utilizar el flujo de *sparse-checkout* detallado a continuación.
 
-Cada ciclo cuenta con su propio `README.md` dentro de la carpeta `Contenido/` con el detalle de su material.
+---
 
-## 📥 Clonar
+## 🚀 Flujo de Trabajo Paso a Paso
 
-Esta sección es únicamente para descargar el contenido del repositorio de forma más fácil, sin necesidad de traer todos los ciclos completos.
+1. Sigue esta secuencia exacta de comandos en tu terminal para descargar exclusivamente la carpeta de trabajo asignada:
 
-### Descargar un ciclo específico
+    ```bash
+    # 1. Clonar el repositorio sin descargar archivos completos
+    git clone --no-checkout https://github.com/CococysLabs/667_Programacion-Comercial-1_Ejemplos.git
 
-```bash
-git clone --filter=blob:none --sparse https://github.com/CococysLabs/667_Programacion-Comercial-1_Ejemplos.git nombre-carpeta
-cd nombre-carpeta
-git sparse-checkout set Ciclo-xxxx-Semestre
+    cd 667_Programacion-Comercial-1_Ejemplos
+
+    # 2. Habilitar sparse-checkout en modo cono
+    git sparse-checkout init --cone
+
+    # 3. Indicar únicamente la carpeta que necesita trabajar el tutor
+    git sparse-checkout set [CARPETA-CICLO-ACTUAL]/Ejemplos
+
+    # 4. Descargar solo esa carpeta en la rama main
+    git checkout main
+    ```
+
+2. Agrega tus códigos de ejemplo, guías o material didáctico dentro de la carpeta descargada:
+
+    `[CARPETA-CICLO-ACTUAL]/Ejemplos/`
+
+3. Guarda tus cambios localmente creando un commit explicativo:
+
+    ```bash
+    git add .
+    git commit -m "feat: agregar ejemplo de [DESCRIPCION] para el ciclo [CICLO-ACTUAL]"
+    ```
+
+4. Envía tus cambios directamente a la rama principal:
+
+    ```bash
+    git push origin main
+    ```
+
+    > **Nota:** Si por error intentas modificar o eliminar archivos fuera de la carpeta `[CARPETA-CICLO-ACTUAL]/Ejemplos`, la plataforma rechazará el `push` debido a las reglas de propiedad configuradas en `CODEOWNERS`.
+
+---
+
+## 📁 Estructura del Repositorio
+
+```text
+667_Programacion-Comercial-1_Ejemplos/
+├── .github/
+│   └── CODEOWNERS                       <-- Configuración de permisos
+├── Ciclo-2024-Primer-Semestre/          <-- Protegido por CODEOWNERS
+├── Ciclo-2024-Segundo-Semestre/         <-- Protegido por CODEOWNERS
+├── Ciclo-2025-Primer-Semestre/          <-- Protegido por CODEOWNERS
+├── Ciclo-2025-Segundo-Semestre/         <-- Protegido por CODEOWNERS
+├── Ciclo-2026-Primer-Semestre/          <-- Protegido por CODEOWNERS
+└── [CARPETA-CICLO-ACTUAL]/
+    └── Ejemplos/                        <-- 🎯 Tu carpeta de trabajo asignada
+        └── .gitkeep
 ```
 
-Donde:
-
-- `nombre-carpeta` es el nombre que tendrá la carpeta descargada en tu computadora.
-- `Ciclo-xxxx-Semestre` es el ciclo específico que deseas descargar (por ejemplo `Ciclo-2025-Segundo-Semestre`).
-
-### Descargar todo el repositorio
-
-```bash
-git clone https://github.com/CococysLabs/667_Programacion-Comercial-1_Ejemplos.git nombre-carpeta
-```
-
-## 🤝 Contribuir
-
-Si deseas contribuir con material para este curso:
-
-1. Fork el repositorio [667_Programacion-Comercial-1_Ejemplos](https://github.com/CococysLabs/667_Programacion-Comercial-1_Ejemplos)
-2. Crea una rama: `git checkout -b feature/667-add-content`
-3. Agrega tu contenido en el ciclo correspondiente
-4. Commit: `git commit -m "feat(667): agregar [descripción]"`
-5. Push y crea un Pull Request
+> **Ciclo actual:** `Ciclo-2026-Segundo-Semestre`. Reemplaza `[CARPETA-CICLO-ACTUAL]` por este nombre en los comandos anteriores.
 
 ## 📧 Contacto
 
-- Email: cococys@ingenieria.usac.edu.gt
+- Email: computacion.cococys@gmail.com
 - Organización: [CococysLabs](https://github.com/CococysLabs)
